@@ -1,8 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-using UnityEngine.UI;
 
 
 public class Regulator : MonoBehaviour
@@ -37,6 +34,7 @@ public class Regulator : MonoBehaviour
     {
         v = Mathf.Sqrt(p / r);
         a = p / v;
+
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
         if (Physics.Raycast(ray, out hit))
@@ -46,6 +44,7 @@ public class Regulator : MonoBehaviour
                 cursorColor.GetComponent<Renderer>().material.color = new Color(255, 0, 0);
 
                 mouseScore = Input.GetAxis("Mouse ScrollWheel");
+
                 if (mouseScore != 0)
                 {
 
@@ -67,6 +66,7 @@ public class Regulator : MonoBehaviour
                     }
 
                 }
+
                 switch (multValue)
                 {
                     case 1:
@@ -78,7 +78,7 @@ public class Regulator : MonoBehaviour
                         canvasOm.text = "0";
                         break;
                     case 2:
-                        cursor.transform.eulerAngles = new Vector3(0, -135, 0); // v~
+                        cursor.transform.eulerAngles = new Vector3(0, -125, 0); // v~
                         multimetrValue.text = "0,01";
                         canvasVac.text = "0,01";
                         canvasV.text = "0";
@@ -86,7 +86,7 @@ public class Regulator : MonoBehaviour
                         canvasOm.text = "0";
                         break;
                     case 3:
-                        cursor.transform.eulerAngles = new Vector3(0, -215, 0); // a
+                        cursor.transform.eulerAngles = new Vector3(0, -225, 0); // a
                         multimetrValue.text = a.ToString("F2");
                         canvasA.text = a.ToString("F2");
                         canvasVac.text = "0";
